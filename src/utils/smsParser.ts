@@ -84,8 +84,7 @@ function detectBank(sender: string): string {
 
 export function parseSms(smsBody: string, sender: string = ''): ParsedTransaction | null {
   const hash = md5(smsBody);
-  const cleanBody = smsBody.replace(/[
-]+/g, ' ').trim();
+  const cleanBody = smsBody.replace(/[\r\n]+/g, ' ').trim();
 
   // HDFC UPI Sent Pattern
   const hdfcUpiSent = /Sent\s+Rs\.?(\d[\d,]*\.?\d{0,2})\s+From\s+HDFC\s+Bank\s+A\/C\s+(\*\d+)\s+To\s+([A-Za-z0-9\s.&@\-_/]+?)\s+On\s+(\d{2}[/-]\d{2}[/-]\d{2})/i;
