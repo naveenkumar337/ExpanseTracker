@@ -9,7 +9,9 @@
     "web": "expo start --web",
     "prebuild": "expo prebuild --no-install",
     "build:android": "eas build --platform android",
-    "build:ios": "eas build --platform ios"
+    "build:ios": "eas build --platform ios",
+    "postinstall": "node scripts/fix-gradle.js",
+    "fix-gradle": "node scripts/fix-gradle.js"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "1.23.1",
@@ -40,6 +42,9 @@
     "@types/react": "~18.2.79",
     "@types/uuid": "^9.0.8",
     "typescript": "~5.3.3"
+  },
+  "overrides": {
+    "expo-constants": "~16.0.2"
   },
   "private": true
 }

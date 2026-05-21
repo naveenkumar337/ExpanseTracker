@@ -8,9 +8,17 @@ pluginManagement {
   if(reactNativeMinor == 74 && reactNativePatch <= 3){
     includeBuild("react-settings-plugin")
   }
+  repositories {
+    google()
+    mavenCentral()
+    gradlePluginPortal()
+  }
+  // Disabled - using local JDK instead of auto-download
+  // plugins {
+  //   id("org.gradle.toolchains.foojay-resolver-convention") version "0.9.0"
+  // }
 }
 
-plugins { id("com.facebook.react.settings") }
 
 def getRNMinorVersion() {
   def version = providers.exec {
